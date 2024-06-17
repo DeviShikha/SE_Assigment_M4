@@ -1,39 +1,35 @@
-/*
-4.13.Write a program to find the max number from given two numbers using friend function
-*/
+/*Write a program to find the max number from given two numbers
+using friend function*/
 #include<iostream>
 using namespace std;
-
-class max_number
+class max_num
 {
-	int n1,n2;
-	friend int maximum(max_number &m)
-	{
-		if(m.n1>m.n2)
-		{
-			cout<<"\n\n\t Number 1 is Maximum";	
-		}	
-		else
-		{
-			cout<<"\n\n\t Number 2 is Maximum";
-		}
-	}
-	public : 
-			void getdata()
-			{
-				cout<<"\n\n\t Enter a Number 1 : ";
-				cin>>n1;
-				cout<<"\n\n\t Enter a Number 2 : ";
-				cin>>n2;
-			}	
-		
+     private:
+          int a ,b;
+     public:
+          void get_value()
+          {
+               cout<<"\n\t Enter the value a : ";
+               cin>>a;
+               cout<<"\n\t Enter the value b : ";
+               cin>>b;
+          }
+          friend void max_value(max_num F);
 };
-
+void max_value(max_num F)
+{
+     if (F.a>F.b)
+     {
+          cout<<"\n\t A is a maximumm number :"<<F.a;
+     }
+     else
+     {
+          cout<<"\n\t B is a maximumm number :"<<F.b;
+     }
+}
 int main()
 {
-	max_number m;
-	m.getdata();
-	int max=maximum(m);
-	
-	
+     max_num m;
+     m.get_value();
+     max_value(m);
 }
