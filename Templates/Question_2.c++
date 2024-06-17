@@ -1,47 +1,45 @@
-/*
-5.2  Write a program of to sort the array using templates
-*/
+//Write a program of to sort the array using templates
 #include <iostream>
 using namespace std;
+
 template <class T>
-class sort
+void arry(T arr[], int size) 
 {
-public:
-    T a, b;
-    void sorting(T i)
+    T temp;
+    cout << "\n\n\n\t Before Sorting...";
+    for(int i = 0; i < size; i++) 
     {
-        T a;
-        for (T i = 0; i < 5; i++)
-        {
-            cout << "\n\n\t input a[" << i + 1 << "] : ";
-            cin << a[i];
-        }
-        cout << "\n\n\t Before sort : " << a;
+        cout << "\n\n\t Array Element [" << i << "] : " << arr[i];
     }
-    void aftersort(T j)
+    
+    for(int i = 0; i < size; i++) 
     {
-        T b;
-        for (T i = 0; i < 5; i++)
+        for(int j = i + 1; j < size; j++) 
         {
-            for (T j = i + 1; j < 5; j++)
+            if(arr[i] > arr[j]) 
             {
-                if (a[i] < a[j])
-                {
-                    T temp;
-                    temp = a[i];
-                    a[i] = a[j];
-                    a[j] = temp;
-                }
-            }
+                temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }	
         }
-        cout << "\n\n\t After sort : " << a;
     }
-};
+    
+    cout << "\n\n\n\t After Sorting...";
+    for(int i = 0; i < size; i++) 
+    {
+        cout << "\n\n\t Array Element [" << i << "] : " << arr[i];
+    }
+}
 
-int main()
+int main() 
 {
-    sort S;
+    int arr[5];
+    for(int i = 0; i < 5; i++) 
+    {
+        cout << "\n\n\t Input array element [" << i << "] : ";
+        cin >> arr[i];
+    }
+    arry(arr, 5);
 
-    S.sorting();
-    S.aftersort();
 }
