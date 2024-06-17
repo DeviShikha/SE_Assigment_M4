@@ -1,5 +1,5 @@
 /*
-4.11 Write a program to calculate the area of circle, rectangle and triangle using Function Overloading
+11 Write a program to calculate the area of circle, rectangle and triangle using Function Overloading
 Rectangle: Area * 
 breadth Triangle: ½
 *Area* breadthCircle: 
@@ -8,43 +8,32 @@ Pi * Area *Area
 
 #include<iostream>
 using namespace std;
-
-class rectangle
+class value
 {
-	float l,w,b,h,a;
-	public : 
-		float area(float len, float wid)
-		{
-			len=l;
-			wid=w;
-			return l*w;	
-		}
-		float triangle(float base, float height)
-		{
-			base=b;
-			height=h;
-			return 0.5*b*h;	
-		}	
-		float breadthCircle(float areaa)
-		{
-			areaa=a;
-			return 3.14*a*a;
-		}
+     private:
+               int a;
+     public:
+               void aera(int l,int w )
+               {
+                    a = l * w ;
+                    cout<<"\n\t Aera of Rectangle is : "<<a;
+          
+               }
+               void aera(float b,int l, int w)
+               {
+                    a = b * l * w ;
+                    cout<<"\n\t Aera Of Triangle is : "<<a;
+               }
+               void aera(int l)
+               {
+                    a = 3.14 * l * l ;
+                    cout<<"\n\t aera of Circle is : "<<a;
+               }
 };
-
 int main()
 {
-	float l,w,b,h,a;
-	cout<<"\n\n\t Enter a value : ";
-	cin>>l>>b;
-	
-	rectangle R;
-	float cir=R.area(l,w);
-	float tri=R.triangle(b,h);
-	float brecir=R.breadthCircle(a);
-	
-	cout<<"\n\n\t Area of Rectangle = "<<cir;
-	cout<<"\n\n\t Area of Triangle = "<<tri;
-	cout<<"\n\n\t Area of Circle = "<<brecir;
-
+     value v;
+     v.aera(2,4);
+     v.aera(0.5,3,5);
+     v.aera(3);
 }
