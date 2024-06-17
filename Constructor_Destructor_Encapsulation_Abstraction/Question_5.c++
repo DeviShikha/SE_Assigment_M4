@@ -4,31 +4,30 @@ member variables for the lengths of its three sides. Implement member
 functions to determine if the triangle is equilateral, isosceles, or scalene..?
 */
 
-
 #include<iostream>
 using namespace std;
 
 class Triangle
 {
 	private : 
-		int s1, s2, s3;
+		int a, b, c;
 		
 	public : 	
 		
 		Triangle(int l1,int l2,int l3)
 		{
-			s1=l1;
-			s2=l2;
-			s3=l3;
+			a=l1;
+			b=l2;
+			c=l3;
 		}
 	
 		void print()
 		{
-			if(s1 == s2 && s2 == s3)
+			if(a == b && b == c)
 			{
 				cout<<"\n\n\t Triangle is Equilateral ";
 			}
-			else if(s1 == s2 || s2 == s3 || s1 == s3)
+			else if(a == b || b == c || a == c)
 			{
 				cout<<"\n\n\t Triangle is Isosceles ";
 			}
@@ -42,11 +41,11 @@ class Triangle
 int main()
 {
 	
-	int l1,l2,l3;
+	int t1,t2,t3;
 	
 	cout<<"\n\n\t Enter a side length : ";
-	cin>>l1>>l2>>l3;
+	cin>>t1>>t2>>t3;
 	
-	Triangle T(l1,l2,l3);
+	Triangle T(t1,t2,t3);
 	T.print();
 }
