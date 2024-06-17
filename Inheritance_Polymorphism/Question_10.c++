@@ -1,32 +1,52 @@
 /*
-4.10 Write a program to concatenate the two strings using Operator Overloading
+10 Write a program to concatenate the two strings using Operator Overloading
 */
 
-#include<iostream> 
+
+#include<iostream>
+#include<string.h>
 using namespace std;
- 
-class AddString 
+
+class String
 {
- 	public:
-	    char s1[25], s2[25];
- 
-    AddString(char str1[], char str2[])
-    {
-       	strcpy(this->s1, str1);
-     	strcpy(this->s2, str2);
-    }
-    void operator+()
-    {
-        cout<<"\n\n\t Concatenation : "<<strcat(s1, s2);
-    }
+        public:
+                char str[20];
+        public:
+                void accept_string()
+                {
+                        cout<<"\n Enter String              :   ";
+                        cin>>str;
+                }
+                void display_string()
+                {
+                        cout<<str;
+                }
+                String operator+(String x)  //Concatenating String
+                {
+                        String s;
+                        strcat(str,x.str);
+                        strcpy(s.str,str);
+                        return s;
+                }
 };
- 
 int main()
 {
-    char str1[] = "Chaudhary";
-    char str2[] = "Shikha";
- 
-    AddString a1(str1, str2);
- 
-    +a1;
+        String str1, str2, str3;
+
+        str1.accept_string();
+        str2.accept_string();
+
+        cout<<"\n ----------------------------------------------";
+        cout<<"\n\n First String is           :  ";
+        str1.display_string();   //Displaying First String
+
+        cout<<"\n\n Second String is          :  ";
+        str2.display_string();  //Displaying Second String
+
+        cout<<"\n ----------------------------------------------";
+        str3=str1+str2;         //String is concatenated. Overloaded '+' operator
+        cout<<"\n\n Concatenated String is    :  ";
+        str3.display_string();
+
+        
 }
