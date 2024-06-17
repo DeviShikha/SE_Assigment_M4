@@ -6,35 +6,36 @@ functions to get and set these variables.
 
 #include<iostream>
 using namespace std;
-
-class car
+class Car
 {
-    string comp;
-    string model;
-    int year;
-
-    public :
-    void get_car()
-    {
-        cout<<"\n\n\t Enter the Company Name : ";
-        cin>>comp;
-        cout<<"\n\n\t Enter the Model of Car : ";
-        cin>>model;
-        cout<<"\n\n\t Enter the year : ";
-        cin>>year;
-    }
-    void Print_car()
-    {
-        cout<<"\n\n\t Company Name :"<<comp;
-        cout<<"\n\n\t Model : "<<model;
-        cout<<"\n\n\t Year : "<<year;
-    }
+     private:
+          string Company;
+          string model;
+          int year;
+     public:
+          void get_Carinfo();
+          void print_Carinfo();
+         
 };
-
+void Car :: get_Carinfo()
+          {
+               cout<<"\n\t Enter Car Company Name :";
+               cin>>Company;
+               cout<<"\n\t Enter Car Model Name : ";
+               cin>>model;
+               cout<<"\n\t Enter Car model lunch year : ";
+               cin>>year;
+          }
+void Car :: print_Carinfo()
+     {
+          cout<<"\n\t\t:::::::::::: Car Information ::::::::::::";
+          cout<<"\n\t\t\t Compnay : "<<Company;
+          cout<<"\n\t\t\t Modle   : "<<model;
+          cout<<"\n\t\t\t Year    : "<<year;
+     }
 int main()
 {
-    car C;
-
-    C.get_car();
-    C.Print_car();
+     Car c;
+     c.get_Carinfo();
+     c.print_Carinfo();
 }
