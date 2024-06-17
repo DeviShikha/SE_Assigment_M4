@@ -1,52 +1,40 @@
-/*
-4.7. Write a C++ Program to illustrates the use of Constructors in multilevel inheritance
-*/
+/*Write a program to Mathematic operation like Addition, Subtraction,
+Multiplication, Division Of two number using different parameters and
+Function Overloading*/
 #include<iostream>
 using namespace std;
+class mat
+{
+     private:
+     int c;
+     public:
+          void add(int a , float b)
+          {
+               c = a + b ;
+               cout<<"\n\t Addition :"<<c;
+          }
+          void add(int a , float b, int d)
+          {
+               c = a - b - d ;
+               cout<<"\n\t Subtraction :"<<c;
+          }
+          void add(int a , float b , int d , float e)
+          {
+               c = a * b ;
+               cout<<"\n\t Multiplication :"<<c;
+          }
+          void add(int a,int d,float e , float b,int f)
+          {
+               c = a / b ;
+               cout<<"\n\t Divison :"<<c;
+          }
 
-class base 
-{
-	
-	public : 
-	int a,b,c;
-		void add()
-		{
-			a=10;
-			b=15;
-			c=a+b;
-			cout<<"\n\n\t Addition = "<<c;
-		}	
 };
-class subtraction : public base
-{
-	
-	public : 
-	int d,e,f;
-		void sub()
-		{
-			d=20;
-			e=10;
-			f=d-e;
-			cout<<"\n\n\t Subtraction = "<<f;
-		}
-};
-class multiplication : public subtraction
-{
-	public : 
-	int g,h,i;
-		void mul()
-		{
-			g=10,h=5;
-			i=g*h;
-			cout<<"\n\n\t Multiplication = "<<i;
-			
-		}
-};
-
 int main()
 {
-	multiplication M;
-	M.add();
-	M.sub();
-	M.mul();
+     mat m;
+     m.add(5,6.4);
+     m.add(3,2.9,1);
+     m.add(4,5.3,3,3.3);
+     m.add(20,6,3.3,5.2,4);
 }
