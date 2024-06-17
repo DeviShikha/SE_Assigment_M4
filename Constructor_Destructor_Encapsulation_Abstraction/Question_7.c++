@@ -4,44 +4,47 @@ set and get these variables, as well as to validate if the date is valid.*/
 
 #include<iostream>
 using namespace std;
-
-class date
+class Date 
 {
-	int day,month,year;
-	public:
-		date()
-		{
-			cout<<"\n\n\t day : ";
-			cin>>day;
-			cout<<"\n\n\t month : ";
-			cin>>month;
-			cout<<"\n\n\t year : ";
-			cin>>year;
-		}
-		void printinfo()
-		{
-			cout<<"\n\n\t"<<day;
-			cout<<":"<<month;
-			cout<<":"<<year;
-			if(day<32)
-			{
-				if(month<13)
-				{
-					cout<<"\n\n\t your date is valid.";
-				}
-				else
-				{
-					cout<<"\n\n\t your date is not valid.";	
-				}
-			}
-			else
-			{
-				cout<<"\n\n\t your date is not valid.";
-			}
-		}
+     private:
+          int day,month,year;
+     public:
+          Date()
+          {
+               cout<<"\n\t Enter Day  :";
+               cin>>day;
+               cout<<"\n\t Enter Month :";
+               cin>>month;
+               cout<<"\n\t Enter Year :";
+               cin>>year;
+          }
+          void print_data();
+
 };
+void Date ::print_data()
+          {
+               cout<<"\n\t Days : "<<day;
+               cout<<"\n\t Month: "<<month;
+               cout<<"\n\t Year : "<<year;    
+               if(day<32)
+                  {
+                    if(month<13)
+                      {
+                         cout<<"\n\t Date is Valid";
+                      }
+                    else
+                    {
+                         cout<<"\n\t Date is Invalid";
+                    }  
+                  }
+               else
+               {
+                         cout<<"\n\t Date is Invalid";
+               }
+
+          }
 int main()
 {
-	date D;
-	D.printinfo();
+     Date d;
+     d.print_data();
 }
