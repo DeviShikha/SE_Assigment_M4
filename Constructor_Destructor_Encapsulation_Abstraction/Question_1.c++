@@ -3,33 +3,28 @@
 using inline function..?
 */
 
-#include <iostream>
+#include<iostream>
 using namespace std;
-
-class program
+class Cubic
 {
-    int n;
-
-public :
-    program()
-    {
-        n = 10;
-    }
-    inline int multiplication()
-    {
-        return n * n;
-    }
-    inline int cubic()
-    {
-        return n * n * n;
-    }
+     private:
+          int c,v;
+     public:
+          void get_num()
+          {
+               cout<<"\n\n\t\t Enter The Number for Finding Cubic Value";
+               cout<<"\n\t\t value : ";
+               cin>>c;
+          }
+          void put_value()
+          {
+               v = c * c * c;
+               cout<<"\n\t Cubic value for "<<c<<" is :"<<v;
+          }
 };
 int main()
 {
-    program P;
-
-    int M=P.multiplication();
-    cout<<"\n\n\t Multiplication = "<<M;
-    int C=P.cubic();
-    cout<<"\n\n\t Cube = "<<C;
+     Cubic e;
+     e.get_num();
+     e.put_value();
 }
