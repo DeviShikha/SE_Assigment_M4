@@ -1,29 +1,22 @@
-/*
-5.1. Write a program of to swap the two values using template
-*/
+//Write a program of to swap the two values using template
 #include<iostream>
 using namespace std;
-template<class T>
-
-void swaping(T x, T y)
+template<class s>
+void swapping(s b,s a)
 {
-	T temp;	
-	temp=x;
-	x=y;
-	y=temp;
-	
-	cout<<"\n\n\t After Swapping ... ";
-	cout<<"\n\n\t X = "<<x<<"\n\n\t Y = "<<y;
+     s c;
+     c=a;
+     a=b;
+     b=c;
+     cout<<"\n\t After swapping";
+     cout<<"\n\t a : "<< b << "\n\t b : "<<a;
 }
 int main()
 {
-	float a, b;	
-	cout<<"\n\n\t Enter number 1 : ";
-	cin>>a;
-	cout<<"\n\n\t Enter number 2 : ";
-	cin>>b;
-	
-	cout<<"\n\n\t Before Swapping ... ";
-	cout<<"\n\n\t a = "<<a<<"\n\n\t b = "<<b;
-	swaping(a, b);
+     int i,n;
+     cout<<"\n\t Enter numbers for swapping : ";
+     cin>> i >> n ;
+     cout<<"\n\t Befor swapping";
+     cout<<"\n\t i : "<< i << " \n\t n : "<<n;
+     swapping( i , n);
 }
