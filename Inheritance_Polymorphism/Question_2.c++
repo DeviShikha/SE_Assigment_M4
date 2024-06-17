@@ -1,45 +1,38 @@
-/*
-4.2. Write a C++ Program to find Area of Rectangle using inheritance
-*/
+//Write a C++ Program to find Area of Rectangle using inheritance
 #include<iostream>
 using namespace std;
-
-class Shape 
-{
-	public:
-    float length;
-    float width;
-
-    Shape(float l, float w) 
-	{
-		length=l;
-	    width=w;
-	}
-
-    float area() 
-	{
-        return length * width;
-    }
+class length
+{    
+     protected:
+          int l;
+     public:
+          void get_info()
+          {
+               cout<<"\n\t Enter the Lenght :";
+               cin>>l;
+          }
+     
 };
-
-class Rectangle : public Shape 
+class Width : public length
 {
-	public:
-   
-    Rectangle(float l, float w) : Shape(l, w) {}
+     private:
+          int w,r;
+     public:
+          void get_data()
+          {
+               cout<<"\n\t Enter the Width :";
+               cin>>w;
+          }
+          void print_info()
+          {
+               r = l * w ;
+               cout<<"\n\t Area of Rectangle :"<<r;
+          }
 };
-
 int main()
 {
-    float length, width;
-    cout<<"\n\n\t Enter length of the rectangle: ";
-    cin>>length;
-    cout<<"\n\n\t Enter width of the rectangle: ";
-    cin>>width;
-
-    Rectangle rect(length, width);
-
-    cout<<"\n\n\t Area of the rectangle: "<<rect.area();
-
-    return 0;
+     Width t;
+     t.get_info();
+     t.get_data();
+     t.print_info();
 }
