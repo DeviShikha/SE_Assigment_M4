@@ -1,78 +1,78 @@
-/*
-4.3 Create a class person having members name and age. Derive a class student having member percentage.
-Derive another class teacher having member salary. Write necessary member function to initialize, read and 
-write data. Write also Main function (Multiple Inheritance)
-*/
-#include <iostream>
+/*Create a class person having members name and age. Derive a class student
+having member percentage. Derive another class teacher having member
+salary. Write necessary member function to initialize, read and write data.
+Write also Main function (Multiple Inheritance)*/
+#include<iostream>
 using namespace std;
-
-class person 
+class Person
 {
-    string name;
-    int age;
-    
-	public:
-       
-    void personinfo() 
-	{
-        cout<<"\n\n\t Enter Person Name : ";
-        cin>>name;
-        cout<<"\n\n\t Enter Person age : ";
-        cin>>age;
-    }
-    void personprint()
-    {
-    	cout<<"\n\n\t Person Name : "<<name;
-        cout<<"\n\n\t Person Age : "<<age;
-	}
+     protected:
+     int roll,age;
+     string name;
+     public:
+          void get_info()
+          {
+               cout<<"\n\t Enter  Name :";
+               cin>>name;
+               cout<<"\n\t Enter Rollno :";
+               cin>>roll;
+               cout<<"\n\t Enter  Age : ";
+               cin>>age;
+          }
+          void put_info()
+          {
+               cout<<"\n\t  Name :"<<name;
+              
+               cout<<"\n\t  Rollno :"<<roll;
+               
+               cout<<"\n\t  Age :"<<age;          
+          }
 };
-
-class student : public person 
+class Student
 {
-    float percentage;
-    
-	public:
-    
-		void studentinfo() 
-		{
-       		person::personinfo();
-        	cout<<"\n\n\t Enter Student percentage : ";
-        	cin>>percentage;
-    	}
-    	void studentprint()
-    	{
-    		person::personprint();
-    		cout<<"\n\n\t Student Percentage : "<<percentage;
-		}
+     protected:
+          int s1,s2,s3,t_mark,per;
+     public:
+     void get_data()
+     {
+          cout<<"\n\t Enter sub mark :";
+          cin>>s1;
+          cout<<"\n\t Enter sub mark :";
+          cin>>s2;
+          cout<<"\n\t Enter sub mark :";
+          cin>>s3;
+     }
+     void calulate_mark()
+     {
+          t_mark = s1 + s2 + s3 ;
+          cout<<"\n\t Total marks is : "<<t_mark;
+          per  = t_mark / 3;
+          cout<<"\n\t Percentage is : "<<per;
+     }
+
 };
-
-class teacher : public person 
+class teacher : public Person , public Student
 {
-    float salary;
-
-	public:
-		
-    void teacherinfo() {
-        person::personinfo(); // Call base class function
-        cout<<"\n\n\t Enter salary : ";
-        cin>>salary;
-        
-    }
-    void teacherprint()
-    {
-    	person::personprint();
-    	cout<<"\n\n\t Salary : "<<salary;
-	}
+     private:
+     int salary;
+     public:
+     void get_salary()
+     {
+          cout<<"\n\t Enter slary of teacher : ";
+          cin>>salary;
+     }
+     void print_salary()
+     {
+          cout<<"\n\t salary of teacher : "<<salary;
+     }
 };
-
-int main() 
+int main()
 {
-    student S;
-    teacher T;
-    
-    S.studentinfo();
-    S.studentprint();
-    T.teacherinfo();
-    T.teacherprint();
-    
+     teacher t;
+     t.get_info();
+     t.get_data();
+     t.get_salary();
+     t.put_info();
+     t.calulate_mark();
+     t.print_salary();
 }
