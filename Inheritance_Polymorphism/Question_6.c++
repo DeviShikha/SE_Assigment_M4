@@ -1,46 +1,51 @@
-/*
-4.6 Write a C++ Program to show access to Private Public and Protected using Inheritance
-*/
+//Write a C++ Program to show access to Private Public and Protected using Inheritance
 #include<iostream>
 using namespace std;
-
-class base
+class emp
 {
-	private : int a;
-	protected : int b;
-	public : int c;
-	
-	void get_a()
-	{
-		a=100;
-		cout<<"\n\n\t A = "<<a;		
-	}	
+     private:
+          string e_name;
+     protected:
+          int e_no;
+     public:
+          int age;
+      void employee_name()
+     {    
+          cout<<"\n\t Enter the Name of Employe : ";
+          cin>>e_name;
+     }
+         
+          void print_name()
+          {
+               cout<<"\n\t Employee Name :"<<e_name;
+          }
+
 };
-
-class derived : public base
+class drive : public emp
 {
-	public :
-		void get_b()
-		{
-			b=200;
-			cout<<"\n\n\t B = "<<b;
-		}
-		
-		void get_c()
-		{
-			c=300;
-			cout<<"\n\n\t C = "<<c;
-		}
+     public:
+     void employee_number()
+          {
+               employee_name();
+               cout<<"\n\t Enter The Number of Employe : ";
+               cin>>e_no;
+          }
+     void employee_age()
+     {
+          cout<<"\n\t Enter Employee Age : ";
+          cin>>age;
+     }
+     void print_info()
+     {
+          print_name();
+          cout<<"\n\t Employee num : "<<e_no;
+          cout<<"\n\t Employee Age : "<<age;
+     }
 };
 int main()
 {
-	derived d;
-	d.get_a();
-	d.get_b();
-	d.get_c();
-	d.c=400;
-	cout<<"\n\n\t C = "<<d.c;
-	
-
-	
+     drive d;
+     d.employee_number();
+     d.employee_age();
+     d.print_info();
 }
