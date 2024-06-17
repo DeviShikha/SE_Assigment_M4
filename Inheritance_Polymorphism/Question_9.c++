@@ -1,34 +1,70 @@
-/*
-4.9. Write a Program of Two 1D Matrix Addition using Operator Overloading
-*/
+/*Write a Program of Two 1D Matrix Addition using Operator Overloading*/
 #include<iostream>
 using namespace std;
-class matrix
+
+class Matrix
 {
-	int n1,n2;
-	int n3,n4;
-	public:
-		void getinfo()
-		{
-			n1=15;
-			n2=25;
-			n3=30;
-			n4=55;
-			cout<<"\n\n\t matrix-1 :"<<n1<<" "<<n2;
-			cout<<"\n\n\t matrix-2 :"<<n3<<" "<<n4;
-		}
-		void sum()
-		{
-			int add1,add2;
-			add1=n1+n3;
-			add2=n2+n4;
-			cout<<"\n\n\t after 1D matrix addition.";
-			cout<<"\n\n\t matrix : "<<add1<<" "<<add2;
-		}
+        int a[3][3];
+    public:
+        void accept();
+        void display();
+        void operator +(Matrix x);
 };
+void Matrix::accept()
+{
+        cout<<"\n Enter Matrix Element (3 X 3) : ";
+        for(int i=0; i<3; i++)
+        {
+                for(int j=0; j<3; j++)
+                {
+                        cout<<" ";
+                        cin>>a[i][j];
+                }
+        }
+}
+void Matrix::display()
+{
+        for(int i=0; i<3; i++)
+        {
+                cout<<" ";
+                for(int j=0; j<3; j++)
+                {
+                        cout<<a[i][j]<<"\t";
+                }
+                cout<<"\n";
+        }
+}
+void Matrix::operator +(Matrix x)
+{
+        int mat[3][3];
+        for(int i=0; i<3; i++)
+        {
+                for(int j=0; j<3; j++)
+                {
+                        mat[i][j]=a[i][j]+x.a[i][j];
+                }
+        }
+        cout<<"\n Addition of Matrix :";
+        for(int i=0; i<3; i++)
+        {
+                cout<<" ";
+                for(int j=0; j<3; j++)
+                {
+                        cout<<mat[i][j]<<"\t";
+                }
+                cout<<"\n";
+        }
+}
 int main()
 {
-	matrix m;
-	m.getinfo();
-	m.sum();
+        Matrix m,n;
+        m.accept();            
+        n.accept();          
+        cout<<"\n First Matrix : ";
+        m.display();           
+        cout<<"\n Second Matrix :";
+        n.display();         
+        m+n;                  
+        
 }
+
