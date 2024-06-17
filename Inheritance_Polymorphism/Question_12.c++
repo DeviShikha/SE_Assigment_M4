@@ -1,41 +1,39 @@
 /*
 4.12.Write a program to swap the two numbers using friend function without using third variable
 */
+
+
 #include<iostream>
 using namespace std;
-class swap_num
+class swapping
 {
-	private : 
-		int a,b;
-		
-		friend int swapping(swap_num &s)
-		{
-			s.a=s.a+s.b;
-			s.b=s.a-s.b;
-			s.a=s.a-s.b;		
-		}	
-	public : 
-		void getdata()
-		{
-			cout<<"\n\n\t Enter Number 1 : ";
-			cin>>a;
-			cout<<"\n\n\t Enter Number 2 : ";
-			cin>>b; 
-		}
-		void printdata()
-		{
-			cout<<"\n\n\t Swapping Number 1 : "<<a;
-			cout<<"\n\n\t Swapping Number 2 : "<<b; 
-		}
+     private:
+               int a,b,c;
+     public:
+               void get_value()
+               {
+                    cout<<"\n\t Enter Number a : ";
+                    cin>>a;
+                    cout<<"\n\t Enter number b : ";
+                    cin>>b;
+                    cout<<"\n\n\n\t Before Swapping ";
+                    cout<<"\n\t a : "<<a;
+                    cout<<"\n\t b : "<<b;
+               }
+               friend void print_value(swapping F);
 };
-
+void print_value(swapping F)
+{
+     F.c=F.a;
+     F.a=F.b;
+     F.b=F.c;
+     cout<<"\n\n\n\t After Swapping ";
+     cout<<"\n\t a : "<<F.a;
+     cout<<"\n\t b : "<<F.b;
+}
 int main()
 {
-	swap_num s;
-	s.getdata();
-	cout<<"\n\n\t Before Swapping ";
-	s.printdata();
-	swapping(s);
-	cout<<"\n\n\t After Swapping ";
-	s.printdata();
+     swapping s;
+     s.get_value();
+     print_value(s);
 }
