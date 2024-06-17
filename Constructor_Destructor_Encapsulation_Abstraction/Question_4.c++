@@ -6,58 +6,54 @@ member functions to deposit and withdraw money from the account.
 
 #include<iostream>
 using namespace std;
-
-class bank_Account
+class Bank_Account  //class 
 {
-    int account_no;
-    int balance;
-    int dept;
-    int widrw;
-    int total2;
-
-
-    public :
-    void get_account()
-    {
-        cout<<"\n\n\t Enter the account Number ";
-        cin>>account_no;
-        cout<<"\n\n\t Enter the balance ";
-        cin>>balance;
-        cout<<"\n\n\t Enter the Deposit Amount ";
-        cin>>dept;
-        cout<<"\n\n\t Enter the Withdrow Amount ";
-        cin>>widrw;
-    }
-    
-    void print_account()
-    {
-        cout<<"\n\n\t Account Number : "<<account_no;
-        cout<<"\n\n\t Balance :"<<balance;
-    }
-    void money()
-    {
-        total2=dept+balance;
-        cout<<"\n\n\t Deposit :"<<total2;
-        cout<<"\n\n\t Withdrow : "<<widrw;
-    }
-
-    void total()
-    {
-        int total;
-        total= total2 - widrw;
-        cout<<"\n\n\t The Available Balance : "<<total;
-    }
-
+     private:  //data members 
+          int a_no;
+          int a_bal;
+          int w,d;
+     public:   // member fuctions 
+          Bank_Account() //constuctor 
+          {
+               a_bal=1000; // by default balance is 1000 
+          }
+          void account_details()
+          {
+               cout<<"\n\t Enter the Account Number : "; // Enter accout number 
+               cin>>a_no;
+          }
+          void print_details();    // Print account details
+          void account_withdraw(); // Put  withdraw ammount
+          void account_deposit();  // Put Deposit Ammount 
 };
-
-int main()
+void Bank_Account ::print_details()     // Print account details
+               {
+                    cout<<"\n\t ::::::::Account Details::::::::";
+                    cout<<"\n\t Account Number : "<<a_no;
+                    cout<<"\n\t Account Balance : "<<a_bal;
+               }    
+void Bank_Account ::account_withdraw()  // Put  withdraw ammount
+               {
+                  cout<<"\n\t Enter the Withdraw Ammount: " ;
+                  cin>>w;
+                  a_bal = a_bal - w ;
+                  cout<<"\n\t Available Balance : "<< a_bal ; // Balance after withdraw 
+               }
+void Bank_Account ::account_deposit()   // Put Deposit Ammount
+               {
+                    cout<<"\n\t Enter the Deposit Ammount : ";
+                    cin>>d;
+                    a_bal = a_bal + d ;
+                    cout<<"\n\t Your  Updated Balance : "<< a_bal; // Balance after Deposit
+               }
+int main()     
 {
-    bank_Account B;
-
-    B.get_account();
-    B.print_account();
-    B.money();
-    B.total();
-
-
+     Bank_Account b;
+     b.account_details();
+     b.print_details();
+     cout<<"\n\t::::::::::::::::::::::::::::::::::";
+     b.account_deposit();
+     cout<<"\n\t::::::::::::::::::::::::::::::::::";
+     b.account_withdraw();
+     cout<<"\n\t::::::::::::::::::::::::::::::::::";
 }
