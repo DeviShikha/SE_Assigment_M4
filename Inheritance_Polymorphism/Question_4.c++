@@ -1,84 +1,97 @@
-/*
-4.4. Write a C++ Program display Student Mark sheet using Multiple inheritance
-*/
-
-#include <iostream>
+//Write a C++ Program display Student Mark sheet using Multiple inheritance
+#include<iostream>
 using namespace std;
-
-class Student 
+class student
 {
-    	string name;
-    	int rollNumber;
-	public:
-    	void get_Student()
-		{
-			name="Shikha";
-			rollNumber=5;
-		}
-
-    void displayStudentInfo() 
-	{
-        cout<<"\n\n\t Student Name: "<<name;
-        cout<<"\n\n\t Roll Number: "<<rollNumber;
-    }
+     protected:
+                string s_name;
+                int s_roll,s_age;
+     public:
+     void get_info()
+     {
+          cout<<"\n\t Enter Student Name :";
+          cin>>s_name;
+          cout<<"\n\t Enter Student Rollno : ";
+          cin>>s_roll;
+          cout<<"\n\t Enter Student Age : ";
+          cin>>s_age;
+     }
+     void put_info()
+     {
+          cout<<"\n\t Student Name : "<<s_name;
+          cout<<"\n\t Student Rollno : "<<s_roll;
+          cout<<"\n\t Student Age : "<<s_age;
+     }
 };
-
-class Marks 
+class marks
 {
-    float math, science, english, hindi;
-    
-	public:
-		int total;
-    	void get_Marks()
-		{
-			math=95;
-			science=82;
-			english=89;
-			hindi=90;
-			total=math+science+english+hindi;
-	    } 
-	
-    	void displayMarks()
-		{
-      	  	cout<<"\n\n\t Math Marks: "<<math;
-      		cout<<"\n\n\t Science Marks: "<<science;
-       		cout<<"\n\n\t English Marks: "<<english;
-       		cout<<"\n\n\t Hindi Marks: "<<hindi;
-       		cout<<"\n\n\t Total Marks: "<<total;
-    	}
+     protected:
+               int s1,s2,s3,s4,s5,std;
+     public:
+     void get_mark()
+     {
+          cout<<"\n\t Maths : ";
+          cin>>s1;
+          cout<<"\n\t scince : ";
+          cin>>s2;
+          cout<<"\n\t Gujrati : ";
+          cin>>s3;
+          cout<<"\n\t Hindi : ";
+          cin>>s4;
+          cout<<"\n\t EVS : ";
+          cin>>s5;
+     }
+     void print_mark()
+     {
+          cout<<"\n\t Matchs  : "<<s1;
+          cout<<"\n\t scince  : "<<s2;
+          cout<<"\n\t Gujrati : "<<s3;
+          cout<<"\n\t Hindi   : "<<s4;
+          cout<<"\n\t EVS     : "<<s5;
+     }
 };
-
-class StudentMarksheet : public Student, public Marks 
+class Result : public student, public marks
 {
-	public:
-	
-	void gread()
-	{
-	if(total>90)
-    	cout<<"\n\n\t Gread A+ ";
-    else if(total>80)
-    	cout<<"\n\n\t Gread A ";
-    else if(total>70)
-    	cout<<"\n\n\t Gread B+ ";
-    else if(total>60)
-    	cout<<"\n\n\t Gread B ";
-    else if(total>50)
-    	cout<<"\n\n\t Gread c ";
-    else
-    	cout<<"\n\n\t Fail ";
-	}
-    
+     private:
+          int t_mark,per;
+          string grade;
+     public:
+          void calulate()
+          {
+               t_mark = s1 + s2 + s3 + s4 + s5;
+               per = t_mark / 5;        
+          }
+          void print_result()
+          {
+               cout<<"\n\t Total Marks : "<<t_mark;
+               cout<<"\n\t  percent :"<<per;
+               if(per>=70)
+               {
+                              printf("\n\n\t Grade : A+");
+               }
+               else if(per>=60)
+               {
+                              printf("\n\n\t Grade : A");
+               }
+               else if(per>=50)
+               {
+                              printf("\n\n\t Grade : B");
+               }    
+               else if(per>=40)
+               {
+                              printf("\n\n\t Grade : C");
+               }    
+
+          }
 };
-
-int main() 
+int main()
 {
-
-    StudentMarksheet s;
-    s.get_Student();
-    s.displayStudentInfo();
-    s.get_Marks();
-    s.displayMarks();
-    s.gread();
-    
-
+     Result r;
+     r.get_info();
+     r.get_mark();
+     r.calulate();
+     cout<<"\n♢♢♢♢♢♢♢♢♢♢♢♢♢♢♢♢♢♢♢♢♢♢♢♢♢♢♢♢♢♢♢♢♢♢♢♢♢♢♢♢";
+     r.put_info();
+     r.print_mark();
+     r.print_result();
 }
